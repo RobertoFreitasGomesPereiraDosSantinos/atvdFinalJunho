@@ -1,0 +1,118 @@
+<script>
+
+
+//----------------------------------
+const cores = [ 'Verde', 'Amarelo', 'Azul', 'Branco' ]// criando vetor de cores
+
+for (const index in cores) {                         // usando o for in para percorrer todo o vetor cores
+  console.log(index, cores[index])                   // montrando a posição atual e o valor da posição atual no consloe
+}
+//----------------------------------
+const pessoa = {                                     // criando um objeto pessoa
+  nome: 'Bruno',                                     // criando um atributo nome que recebe Bruno
+  idade: 25                                          // crinado um atributo idade que recebe 25
+}
+
+for (const index in pessoa) {                        // usando o for in para percorrer todo o vetor cores                                         
+  console.log(`${index} - ${pessoa[index]}`);        // monstrando cada atributo do objeto pessoa e sua posição
+}
+// nome - Bruno | idade - 25
+//-----------------------------------------
+const produtos = [                                  // criando um vetor de objetos prduto
+  { descricao: 'Resma Ofício', valor: 11.50, quantidade: 10 },
+  { descricao: 'Lapis preto', valor: 0.50, quantidade: 3 },
+  { descricao: 'Transferidor plastico', valor: 1.20, quantidade: 4 }
+]
+
+let total = 0                                      // criando a variavel total
+
+for (const index in produtos) {                    // usando o for in pra percorrer o array 
+  const { valor, quantidade } = produtos[index]    // crinado as constantes valor quantidade
+
+  total += valor * quantidade                      // calculando total
+}
+
+console.log(total)                                 // monstrando total
+//---------------------------------------
+const numeros = [ 10, 11, 22, 23, 34, 45, 66, 17, 28, 93, 101 ]; // criando um array de números
+
+for (const numero of numeros) {                    // usando for of para percorrer o array numeros
+  console.log(numero);                             // mostrando no console cada valor do array numeros
+}
+//------------------------------------------
+const carros = [                                   // criando um array carros de objetos         
+  { id: 1, modelo: 'Corsa', marca: 'Chevrolet', preco: 18000 },
+  { id: 2, modelo: 'Punto', marca: 'Fiat', preco: 12000 },
+  { id: 3, modelo: 'Gol', marca: 'Volkswagen', preco: 14000 },
+  { id: 4, modelo: 'Saveiro', marca: 'Volkswagen', preco: 20000 },
+  { id: 5, modelo: 'Uno', marca: 'Fiat', preco: 12000 }
+]
+
+let total02 = 0                                   // criando a variavel total02
+
+for (const carro of carros) {                     // usando o for of para percorrer o array carros
+  total02 += carro.preco                          // somando o atributo preços de cada objetos e colocando no total02
+}
+
+
+const valorFinal = Number(total02).toLocaleString('pt-BR', { // convertendo o número para o padrão monetário
+  style: 'currency',
+  currency: 'BRL'
+})
+
+console.log(valorFinal)                          // mostrando valorFinal no console
+//---------------------------------------------
+const artigo = document.querySelectorAll('article > p') // criando a constante artigo
+
+for (const paragrafo of artigo) {                       // usando o for of em artigo
+  paragrafo.classList.add("read")                       // adicionando a classe read a parágrafo
+}
+//--------------------------------------------
+var numeros02 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];// criando array numeros02
+var total03 = 0;                                // criando a variavel total03
+
+function somar(item, indice) {                  // criando o procedimento somar
+    total03 += item;                            // somando os itens do array numeros02 na variavel totoal03
+    numeros02[indice] = total03;                // atribuindo cada valor de total03 a cada posição do array
+}
+
+numeros02.forEach(somar);                      // usando forEach com o somar
+console.log(numeros02);                        // mostrando o array
+//------------------------------------------
+var marcas = ["Fiat", "Chevrolet", "Ford", "Volkswagen"]  // criando array marcas
+var marcasIniciadasComF = []; // criando var marcasIniciadasComF
+var novoIndice = 0; // criando var novoIndice
+
+function selecionarMarcas(item, indice) { // criado function selecionarMarcas
+    if (marcas[indice].indexOf("F") == 0) { // vendo se cada elmento comeca com F
+        marcasIniciadasComF[novoIndice] = marcas[indice]; // salvande esses nomes em marcasIniciadasComF
+        novoIndice++; // incrementando novoIndice
+    }
+}
+
+marcas.forEach(selecionarMarcas); // usando forEach
+console.log(marcasIniciadasComF); // mostrando no console marcasIniciadasComF
+//--------------------------------------------------
+var nomes = ["Alberto", "Alex", "Sandro", "Roberta"]; // criando vetor nomes
+
+function converterParaMaisculo(item, indice) {  // criando a function converterParaMaisculo
+    nomes[indice] = nomes[indice].toUpperCase(); // convertendo todos os valores de nomes para maiusculo
+}
+
+nomes.forEach(converterParaMaisculo);  // usando forEach
+console.log(nomes);  // mostrando no console o vetor nomes
+//-----------------------------------------
+var tamanhoNome = 0; // criando var tamanhoNome
+var nome = ""; // criando nome
+
+function maiorNome(item, indice) { //criando function maiorNome
+    if (nomes[indice].length > tamanhoNome) {// vendo se o tamanho da cada nome é maior que tamanhoNome
+        nome = nomes[indice]; // colocando o nome na posição atual em nome
+        tamanhoNome = nomes[indice].length; // colocando o tamanho do nome em tamanhoNome
+    }
+}
+
+nomes.forEach(maiorNome); //usando forEach
+console.log(nome); //mostrando no console
+
+</script>
